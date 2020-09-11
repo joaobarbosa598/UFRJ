@@ -1,0 +1,4 @@
+g++ -o fileName fileName.cpp
+
+parei no stream iterators
+test&cls

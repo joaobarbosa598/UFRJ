@@ -1,0 +1,5 @@
+joao vitor 3 5.00
+alo 4.00
+oi 3.00
+me 3 2.00
+oi  2.00

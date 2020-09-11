@@ -1,0 +1,5 @@
+sabor 7
+tatu 9
+fruta 10
+predio 2
+estruct 5

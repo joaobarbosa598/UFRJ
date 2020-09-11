@@ -1,0 +1,5 @@
+7 sabor
+9 tatu
+10 fruta
+2 predio
+5 estruct

@@ -1,0 +1,60 @@
+cd Documents\Cienciadacomputacao\1periodo\Comp1\Pratica\uri
+
+cd Documents\Cienciadacomputacao\1periodo\Comp1\SDL\Projeto
+
+gcc -o alo 01_alo_SDL.c -LC:\mingw\include\SDL2 -IC:\mingw\lib -lmingw32 -lSDL2main -lSDL2
+
+gcc -o alo 01_alo_SDL.c -lmingw32 -lSDL2main -lSDL2
+
+gcc -o 06_moving_images 06_moving_images.c -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer
+
+
+TODA VEZ QUE VOCE BAIXAR UM NOVO INCLUDE, DEVERA USAR :
+
+gcc -o 06_moving_images 06_moving_images.c -LC:\mingw\include\SDL2 -IC:\mingw\lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_oquevocebaixou
+
+
+FC file1 //file2 compara arquivos de texto
+test&cls //limpa a tela
+
+dir
+
+setx PATH "%PATH%;C:\MinGW\bin;"
+
+
+SAIDA POR AQUIVOS NA HORA DE EXECUTAR PELO CONSOLE
+
+programa.exe < entrada.txt
+programa.exe > saida.txt
+programa.exe < entrada.txt > saida.txt
+
+
+
+
+
+
+
+
+
+
+
+
+https://fig.if.usp.br/~esdobay/c/gcc.html
+Não é muito mais complicado compilar programas cujo código está distribuído em vários arquivos; inclusive, na maioria dos casos, você pode usar o mesmo comando que usou para compilar programas de um arquivo só, simplesmente adicionando mais nomes de arquivo. Mas isso tem uma desvantagem: mesmo que tiver feito uma pequena alteração em um único arquivo, você terá que compilar todo o programa novamente. (Em alguns casos, quando essa alteração afeta outros arquivos, pode ser de fato necessário recompilar tudo.)
+
+Por isso, você pode dividir a “compilação” em duas etapas: a compilação de verdade (sim, você foi enganado antes) e a montagem. A compilação é a etapa que transforma seu programa em código de máquina, e a montagem junta todos os pedaços necessários para fazer seu programa (incluindo algumas coisas que você não sabe que estão sendo incluídas mas que são necessárias para rodar um programa completo).
+
+Para apenas compilar (e não montar) um arquivo, você deve usar o comando
+
+$ gcc -c prog.c
+Note que não foi necessário especificar o nome do arquivo a ser gerado. O gcc criará o arquivo prog.o (a extensão .o significa objeto ou programa-objeto), um nome que você, geralmente, não deveria mudar. (Você pode, no entanto, mudá-lo, também com a opção -o.)
+
+Os vários programas-objeto devem ser montados para formar um executável. Isso é feito com o comando:
+
+$ gcc -o monstrinho prog1.o prog2.o prog3.o ...
+que gerará o executável monstrinho.
+
+Assim, se você tiver um programa com três arquivos-fonte e resolver alterar o segundo, você pode recompilar apenas o segundo e apenas repetir a etapa de montagem (desde que já tenha os programas-objeto dos outros dois arquivos):
+
+$ gcc -c prog2.c
+$ gcc -o meuprog prog1.o prog2.o prog3.o

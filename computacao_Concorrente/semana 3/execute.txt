@@ -1,0 +1,1 @@
+./mult_matriz_vetor dados/A5000x5000.txt dados/X5000.txt saida

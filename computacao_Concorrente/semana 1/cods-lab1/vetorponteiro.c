@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#define TAM  10
+#define TAM  5
 #define NTHREADS  2
 
 //cria a estrutura de dados para armazenar os argumentos da thread
 typedef struct {
-   int vetor[TAM/2], threadNum;
+   int vetor[TAM], threadNum;
 } t_Args;
 
 //--funcao executada pelas threads
@@ -48,13 +48,10 @@ int main (int argc, char **argv)
 			printf("--ERRO: malloc()\n"); exit(-1);
 		}
 		obj->threadNum = t;
-		for(i = 0; i < TAM/2; i++)
+		for(i = 0; i < TAM; i++)
 		{
 			obj->vetor[i] = 0;
 		}
-
-
-
 
 		printf("--Cria a thread %d\n", t);
 		obj->threadNum = t;
@@ -77,6 +74,7 @@ int main (int argc, char **argv)
 	{
 	 	printf("%d ", *( (obj->vetor)+j ) );
 	}
+	printf("\n");
 
 	free(obj);
 
@@ -89,14 +87,14 @@ void *Incrementa (void *arg)
 	t_Args *args = (t_Args *) arg;
 	printf("args->threadNum %d\n", args->threadNum);
 
-	for(i = 0; i < TAM/2; i++)
+	for(i = 0; i < TAM; i++)
 	{
-		//( (arg->vetor)+i ) = 1;
+		*( (args->vetor)+i ) += 1;
 	}
 
-	for(i = 0; i < TAM/2; i++)
+	for(i = 0; i < TAM; i++)
 	{
-		printf("%d\n", *((arg->vetor)+i) );
+		printf("%d\n", *((args->vetor)+i) );
 	}
 
 	printf("Sou a thread %d de %d threads\n", args->threadNum, NTHREADS);

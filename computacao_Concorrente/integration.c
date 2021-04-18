@@ -17,16 +17,16 @@
  source: C for Engineering, http://c4engineering.hypermart.net */
 
 //quanto maior o N, maior a precisao
-#define N 10000
+#define N 1000000
 
 int main(int argc, char **argv) 
 {
-    float i, a, b, x, y, sum = 0;
+    double i, a, b, x, y, sum = 0;
     printf("This program will integrate a function between two boundary limits.\n");
     printf("Enter the first boundary limit:\n");
-    scanf("%f", &a);
+    scanf("%lf", &a);
     printf("Enter the second boundary limit:\n");
-    scanf("%f", &b);
+    scanf("%lf", &b);
     if (a > b) 
     {
         i = a;
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
         sum += y * (b - a) / N;
     }
 
-    printf("Value of integration is:%.5f", sum);
+    printf("Value of integration is:%.15lf", sum);
     printf("\n");
     return 0;
 }
